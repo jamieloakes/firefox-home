@@ -1,0 +1,68 @@
+:root {
+    --background_colour: #2e2b2b;
+    --link_background_colour: #615858;
+    --link_border_colour: #8BC34A;
+
+    --link_width: 30em;
+    --link_height: 2em;
+    --link_font_size: 1.5em;
+    --link_hover_multiplier: 1.1;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+
+    background-color: var(--background_colour);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    
+    margin: auto; /* Aligns elements in center */
+}
+
+/* Container styling set up as flexbox for date and clock elements */
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem; /* Add padding at top to avoid date being directly at top of page */
+}
+
+#date, #clock {
+    margin-top: 0; /* Removes big gap between date and clock */
+}
+
+/* Container styling set up as flexbox for link elements */
+.link-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 1em;
+}
+
+.link {
+    width: var(--link_width);
+    flex: 0 1 auto;
+
+    /* Align text in links center on vertical and horizontal axis */
+    text-align: center;
+    vertical-align: middle;
+    line-height: var(--link_height);
+
+    background-color: var(--link_background_colour);
+    opacity: 50%;
+
+    color: white;
+    text-decoration: none;
+    font-size: var(--link_font_size);
+
+    /* Increase size and add bottom border on hover/focus to emphasise selection */
+    &:hover, &:focus{
+        width: calc(var(--link_width) * var(--link_hover_multiplier));
+        font-size: calc(var(--link_font_size) * var(--link_hover_multiplier));
+        line-height: calc(var(--link_height) * var(--link_hover_multiplier));
+        border-bottom: solid 0.3em var(--link_border_colour);
+        opacity: 100%;
+        outline: 0;
+    }
+}
